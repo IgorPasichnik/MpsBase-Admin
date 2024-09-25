@@ -1,0 +1,16 @@
+export const Paths = {
+  aboutCompany: "/",
+  productsBase: "/products",
+  productionsBase: "/productions",
+  productsAdd: "/admin/products/add",
+  productsEdit: "/admin/products/edit",
+  products: "/admin/products",
+  product: "/admin/product",
+  productionsAdd: "/admin/productions/add",
+  productionsEdit: "/admin/productions/edit",
+  productions: "/admin/productions",
+  production: "/admin/production",
+  status: "/admin/status",
+  login: "/admin/login",
+  error: "*",
+};

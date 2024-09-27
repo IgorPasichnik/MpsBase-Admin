@@ -3,4 +3,3 @@ export const location = {
   zoom: 12,
 };
 
-export const apiKey = process.env.REACT_APP_YANDEX_MAP;

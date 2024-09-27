@@ -11,7 +11,7 @@ import {
   YMapDefaultMarker,
 } from "ymap3-components";
 import customization from "./customization.json";
-import { location as LOCATION, apiKey } from "./helpers";
+import { location as LOCATION } from "./helpers";
 
 export function Map() {
   const [location, setLocation] = useState(LOCATION);
@@ -27,7 +27,10 @@ export function Map() {
   }, []);
 
   return (
-    <YMapComponentsProvider apiKey={apiKey} lang="ru_RU">
+    <YMapComponentsProvider
+      apiKey={process.env.REACT_APP_YANDEX_MAP}
+      lang="ru_RU"
+    >
       <YMap
         style={{
           width: "100%",

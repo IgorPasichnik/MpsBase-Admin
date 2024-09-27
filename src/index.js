@@ -86,64 +86,21 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App = () => {
-  const location = useLocation();
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+const container = document.getElementById("root");
+const root = createRoot(container);
 
-  useEffect(() => {
-    const darkThemePaths = [
-      Paths.products,
-      Paths.productions,
-      Paths.login,
-      Paths.productsAdd,
-      Paths.productionsAdd,
-      `${Paths.status}/:status`,
-      `${Paths.product}/:id`,
-      `${Paths.production}/:id`,
-      `${Paths.productsEdit}/:id`,
-      `${Paths.productionsEdit}/:id`,
-    ];
-    setIsDarkTheme(darkThemePaths.includes(location.pathname));
-  }, [location]);
-
-  return (
+root.render(
+  <Provider store={store}>
     <ConfigProvider
       theme={{
-        algorithm: isDarkTheme ? theme.darkAlgorithm : theme.darkAlgorithm,
+        algorithm: theme.darkAlgorithm,
       }}
     >
       <Auth>
         <RouterProvider router={router} />
       </Auth>
     </ConfigProvider>
-  );
-};
-
-const Root = () => (
-  <Provider store={store}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
   </Provider>
-);
-
-const container = document.getElementById("root");
-const root = createRoot(container);
-
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ConfigProvider
-        theme={{
-          algorithm: theme.darkAlgorithm,
-        }}
-      >
-        <Auth>
-          <RouterProvider router={router} />
-        </Auth>
-      </ConfigProvider>
-    </Provider>
-  </React.StrictMode>
 );
 
 reportWebVitals();
